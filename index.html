@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta description="Financial application">
+    <meta description="Financial application" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
   </head>
   <body>
     <header>
-      <img src="./assets/logo.svg" alt="Logo Dev Finance">
+      <img src="./assets/logo.svg" alt="Logo Dev Finance" />
     </header>
 
     <main class="container">
@@ -26,33 +26,32 @@
         <div class="card">
           <h3>
             <span>Entradas</span>
-            <img src="./assets/income.svg" alt="Imagem de Entradas">
+            <img src="./assets/income.svg" alt="Imagem de Entradas" />
           </h3>
           <p>R$ 5.000,00</p>
         </div>
         <div class="card">
           <h3>
             <span>Saídas</span>
-            <img src="./assets/expense.svg" alt="Imagem de Saídas">
+            <img src="./assets/expense.svg" alt="Imagem de Saídas" />
           </h3>
           <p>R$ 2.000,00</p>
         </div>
         <div class="card total">
           <h3>
             <span>Total</span>
-            <img src="./assets/total.svg" alt="Imagem do Total">
+            <img src="./assets/total.svg" alt="Imagem do Total" />
           </h3>
           <p>R$ 3.000,00</p>
         </div>
-
       </section>
 
       <section id="transaction">
         <h2 class="sr-only">Transações</h2>
 
-        <a onclick="Modal.open()" 
-          href="#" 
-          class="button new">➕ Nova Transação</a>
+        <a onclick="Modal.open()" href="#" class="button new"
+          >➕ Nova Transação</a
+        >
 
         <table id="data-table">
           <thead>
@@ -63,35 +62,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="description">Luz</td>
-              <td class="expense">-R$ 500,00</td>
-              <td class="date">25/01/2023</td>
-              <td>
-                <img src="./assets/minus.svg" 
-                alt="Imagem para eliminar Transação">
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Criação de Website</td>
-              <td class="income">R$ 5.000,00</td>
-              <td class="date">25/01/2023</td>
-              <td>
-                <img src="./assets/minus.svg" 
-                alt="Imagem para eliminar Transação">
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Internet</td>
-              <td class="expense">- R$ 200,00</td>
-              <td class="date">25/01/2023</td>
-              <td>
-                <img src="./assets/minus.svg" 
-                alt="Imagem para eliminar Transação">
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </section>
     </main>
@@ -102,47 +73,42 @@
           <h2>Nova Transação</h2>
           <form action="">
             <div class="input-group">
-              <label 
-                class="sr-only" 
-                for="description">Descrição</label>
-              <input 
-                type="text" 
-                name="description" 
+              <label class="sr-only" for="description">Descrição</label>
+              <input
+                type="text"
+                name="description"
                 id="description"
-                placeholder="Descrição">
+                placeholder="Descrição"
+              />
             </div>
 
             <div class="input-group">
-              <label 
-                class="sr-only" 
-                for="amount">Descrição</label>
-              <input 
-                type="number" 
+              <label class="sr-only" for="amount">Descrição</label>
+              <input
+                type="number"
                 step="0.01"
-                name="amount" 
+                name="amount"
                 id="amount"
-                placeholder="0,00">
+                placeholder="0,00"
+              />
             </div>
 
             <small class="help">
-              Use o sina - (negativo) para despesas e , (vírgula) para casas decimais
+              Use o sina - (negativo) para despesas e , (vírgula) para casas
+              decimais
             </small>
 
             <div class="input-group">
-              <label 
-                class="sr-only" 
-                for="date">Descrição</label>
-              <input 
-                type="date" 
-                name="date" 
-                id="date">
+              <label class="sr-only" for="date">Descrição</label>
+              <input type="date" name="date" id="date" />
             </div>
 
             <div class="input-group actions">
-              <a onclick="Modal.close()" href="#" class="button cancel">Cancelar</a>
+              <a onclick="Modal.close()" href="#" class="button cancel"
+                >Cancelar</a
+              >
               <button type="submit">Salvar</button>
             </div>
-
           </form>
         </div>
       </div>

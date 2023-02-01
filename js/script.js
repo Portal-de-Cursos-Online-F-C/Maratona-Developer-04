@@ -15,18 +15,6 @@ const Modal = {
     }
 }
 
-const Transaction = {
-    incomes(
-        //Somar as Entradas
-    ){},
-    expenses(){
-        //Somar as Saídas
-    },
-    total(){
-        //Entradas - Saídas
-    }
-}
-
 const transactions = [
     {
         id: 1,
@@ -47,3 +35,48 @@ const transactions = [
         date: '23/02/2023',
     },
 ]
+
+const Transaction = {
+    incomes(
+        //Somar as Entradas
+    ){},
+    expenses(){
+        //Somar as Saídas
+    },
+    total(){
+        //Entradas - Saídas
+    }
+}
+
+const DOM = {
+    transactionsContainer: document.querySelector('#data-table'),
+
+    addTransaction(transaction, index){
+        const tr = document.createElement('tr');
+        tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+
+        DOM.transactionsContainer.appendChild(tr)
+    },
+
+    innerHTMLTransaction(transaction){
+        const CSSClass = transaction.amount > 0 ? 'income' : 'expense';
+
+        const html = `        
+        <td class="description">${transaction.description}</td>
+        <td class="${CSSClass}">${transaction.amount}</td>
+        <td class="date">${transaction.date}</td>
+        <td>
+        <img
+            src="./assets/minus.svg"
+            alt="Imagem para eliminar Transação"
+        />
+        </td>       
+        `
+
+        return html
+    }
+}
+
+transactions.forEach(function(transaction) {
+    DOM.addTransaction(transaction);
+});
