@@ -37,14 +37,28 @@ const transactions = [
 ]
 
 const Transaction = {
-    incomes(
-        //Somar as Entradas
-    ){},
-    expenses(){
-        //Somar as Saídas
+    incomes(){
+        let income = 0;
+        transactions.forEach((transaction) => {
+            if(transaction.amount > 0) {
+                income += transaction.amount;
+            }
+        })
+        return income;
     },
+
+    expenses(){
+        let expense = 0;
+        transactions.forEach((transaction) => {
+            if(transaction.amount < 0) {
+                expense += transaction.amount;
+            }
+        })
+        return expense;
+    },
+
     total(){
-        //Entradas - Saídas
+        return Transaction.incomes() + Transaction.expenses()
     }
 }
 
@@ -61,9 +75,11 @@ const DOM = {
     innerHTMLTransaction(transaction){
         const CSSClass = transaction.amount > 0 ? 'income' : 'expense';
 
+        const amount = Utils.formatCurrency(transaction.amount);
+
         const html = `        
         <td class="description">${transaction.description}</td>
-        <td class="${CSSClass}">${transaction.amount}</td>
+        <td class="${CSSClass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
         <img
@@ -74,9 +90,37 @@ const DOM = {
         `
 
         return html
+    },
+
+    updateBalance() {
+        document
+        .getElementById('incomeDisplay')
+        .innerHTML = Utils.formatCurrency(Transaction.incomes());
+        document
+        .getElementById('expenseDisplay')
+        .innerHTML = Utils.formatCurrency(Transaction.expenses());
+        document
+        .getElementById('totalDisplay')
+        .innerHTML = Utils.formatCurrency(Transaction.total());
+
+    }
+}
+
+const Utils = {
+    formatCurrency(value) {
+        const signal = Number(value) < 0 ? "-" : "+";
+        value = String(value).replace(/\D/g, '');
+        value = Number(value) / 100
+        value = value.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'AKZ'
+        })
+        return signal + ' ' + value;
     }
 }
 
 transactions.forEach(function(transaction) {
     DOM.addTransaction(transaction);
 });
+
+DOM.updateBalance();
