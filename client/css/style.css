@@ -22,6 +22,10 @@ body {
     background: #f0f2f5;
 }
 
+.logo {
+    color: white;
+}
+
 .sr-only { /*Hides this element content*/
     position: absolute;
     width: 1px;
